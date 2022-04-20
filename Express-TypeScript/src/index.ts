@@ -19,5 +19,8 @@ app.use(morgan("dev"));
 app.use(helmet());
 const port = process.env.PORT || 4000;
 connectDB();
+app.get('/', (req, res) => {
+    res.send("<h1>Hi</h1>")
+})
 app.use("/api/v1", routes);
 app.listen(port, () => console.log(`App listening on http://localhost:${port}`));

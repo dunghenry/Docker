@@ -72,3 +72,5 @@ II - How to use?
   5. Full-text search    
   
     > GET /api/v1/products?search=men
+
+  6.Đối với nodemon thì thêm -L còn đối với ts-node-dev thì thêm --poll

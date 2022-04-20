@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "ts-node-dev src/index.ts",
+    "start": "ts-node-dev --poll src/index.ts",
     "build": "tsc",
     "dev": "node dist/index.js"
   },

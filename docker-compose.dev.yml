@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  api-dev:
+    container_name: rest-api-dev
+    restart: unless-stopped
+    build: 
+      context: ./Express-TypeScript
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    # env_file:
+    #   - ./Express-TypeScript/.env
+    volumes:
+      - ./Express-TypeScript/src:/app/src
+    networks:
+      - trandung
+    environment:
+      - PORT=4000
+      - MONGODB_URI=mongodb://mongo:27017/myDB
+  mongo:
+    image: mongo:5.0.5
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - trandung
+volumes:
+  mongodb: 
+networks:
+  trandung:
